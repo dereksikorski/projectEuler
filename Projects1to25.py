@@ -83,27 +83,26 @@ def Project3():
     print("-"*150)
     print("\n### Project 3 ###\n")
     print("--> Finding largest prime factor of 6000851475143\n\n")
-
+    test = 600851475143
     prime_dict = {} # dict to store prime numbers
-    for i in range(2,600851475143):
-        if i in (1e6, 1e7, 1e8, 1e9, 1e10, 1e11):
-            print(i)
-        if 600851475143 % i == 0 and i % 2 != 0:
+    for i in range(2,int(test**(1/2))):
+        if test % i == 0 and i % 2 != 0:
 
             condition = True    # Holds if number can still be prime
             for num in prime_dict.values():
 
                 if num < i**(1/2):      # if z and y both factors of x -- or zy = x -- then both numbers cannot be larger than sqrt(x)
 
-                    if i % num != 0:
+                    if i % num == 0:
                         condition = False
                         break
 
             if condition == True:
                 # IF the remainder of modulo division is 0 for all primes in dictionary, then add to dictionary as it is prime
                 prime_dict[str(i)] = i
+                ans = i
 
-    ans = prime_dict[len(prime_dict)]
+
 
     print(f"Answer: {ans}")
     print("-"*150)
