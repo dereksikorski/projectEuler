@@ -108,9 +108,59 @@ def Project3():
     print("-"*150)
 
 
+###########
+def Project4(n):
+    """
+    For a given input n, gives the largest palindormic product of two numbers with that number of digits.
+
+    Ex: For n = 2, largest palindromic product is 91 x 99 = 9009 
+    """
+
+    print("-"*150)
+    print("\n### Project 4 ###\n")
+    print(f"--> Finding largest palindromic product of two, {n}-digit numbers\n\n")
+    palindrome_list = []
+    for num1 in range(10**(n-1), 10**(n)):
+        for num2 in range(10**(n-1), 10**(n)):
+            p_condition = True
+            product_str = str(num1 *num2)
+            for ind in range(len(product_str)):
+                if product_str[ind] != product_str[-(ind+1)]:
+                    p_condition = False
+            if p_condition == True:
+                palindrome_list.append(int(product_str))
+    palindrome_list.sort()
+    ans = palindrome_list[len(palindrome_list)-1]
+    print(f"Answer: {ans}")
+    print("-"*150)
 
 
+
+
+
+############
+def Project5(n):
+    """
+    Given n, find the smallest number that is divisible by every number, 1-to-n
+    """
+    print("-"*150)
+    print("\n### Project 5 ###\n")
+    print(f"--> Finding smallest number evenly divisible by 1-through-{n}\n\n")
+
+    condition = False
+    counter = 0
+    while condition == False:
+        counter += 1
+        for num in range(1,n+1):
+            if counter % num != 0:
+                condition = False
+                break
+            else:
+                condition = True
+    print(f"Answer: {counter}")
+    print("-"*150)
+    
 
 if __name__ == "__main__":
 
-    Project3()
+    Project5(20)
